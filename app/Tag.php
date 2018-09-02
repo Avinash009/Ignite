@@ -8,5 +8,9 @@ use Session;
 
 class Tag extends Model
 {
-    
+    protected $fillable = [
+
+      'tag'
+
+  ];
 }

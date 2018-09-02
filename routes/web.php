@@ -27,11 +27,21 @@ Route::get('/category/create', [
 
     ]);
 
+Route::post('/category/store', [
+      'uses' => 'CategoriesController@store',
+      'as'   =>'category.store'
+    ]);
+
 Route::get('/tag/create', [
 
       'uses' => 'TagsController@create',
       'as'   =>'tag.create'
 
+    ]);
+
+Route::post('/tag/store', [
+      'uses' => 'TagsController@store',
+      'as'   =>'tag.store'
     ]);
 
 Route::get('/post/create', [

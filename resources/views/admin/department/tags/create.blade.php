@@ -13,11 +13,11 @@
 
     <div class="panel-body">
 
-      <form action="" method="post">
+      <form id="form-tag" action="{{route('tag.store')}}" method="post">
         {{ csrf_field() }}
         <div class="form-group">
 
-          <label for="name">Tag</label>
+          <label for="tag">Tag</label>
 
           <input type="text" name="tag" class="form-control">
 
@@ -38,4 +38,35 @@
 
   </div>
 
-@stop
+@endsection
+
+
+@section('scripts')
+
+<script>
+
+$( document ).ready(function() {
+
+  $("#form-tag").submit(function(e)
+  {
+    e.preventDefault();
+
+    var form = $(this);
+
+    $.ajax({
+
+           type: "POST",
+           url: '{{route('tag.store')}}',
+           data: form.serialize(), 
+           success: function(data)
+           {
+               location.reload();
+           }
+    });
+
+  });
+
+});
+</script>
+
+@endsection

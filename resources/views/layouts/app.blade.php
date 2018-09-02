@@ -13,6 +13,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
+
+    @yield('styles')
+
 </head>
 <body>
     <div id="app">
@@ -138,7 +141,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
     <script src="{{ asset('js/toastr.min.js') }}"></script>
+
 
     <script>
 
@@ -155,5 +161,8 @@
       @endif
 
     </script>
+
+    @yield('scripts')
+
 </body>
 </html>

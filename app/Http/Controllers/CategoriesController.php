@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Session;
+
+use App\Category;
+
 use Illuminate\Http\Request;
 
-use Session;
 
 class CategoriesController extends Controller
 {
@@ -36,7 +39,19 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $category = Category::create([
+
+          'department' => $request->department,
+
+          'year' => $request->year,
+
+          'semester' => $request->semester
+          
+        ]);
+
+        Session::flash('success', 'You successfully created a category.');
+        
     }
 
     /**

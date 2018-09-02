@@ -13,14 +13,14 @@
 
     <div class="panel-body">
 
-      <form action="" method="post">
+      <form id="form-category" action="{{route('category.store')}}" method="post">
         {{ csrf_field() }}
 
         <div class="form-group">
           <label for="branch">Department</label>
 
           <div>
-              <select class="form-control" id="branch" name="branch" required autofocus>
+              <select class="form-control" id="department" name="department" required autofocus>
                   <option>IT</option>
                   <option>CSE</option>
                   <option>ECE</option>
@@ -31,10 +31,10 @@
         </div>
 
         <div class="form-group">
-          <label for="branch">Year</label>
+          <label for="year">Year</label>
 
           <div>
-              <select class="form-control" id="branch" name="branch" required autofocus>
+              <select class="form-control" id="year" name="year" required autofocus>
                   <option>First</option>
                   <option>Second</option>
                   <option>Third</option>
@@ -47,7 +47,7 @@
           <label for="branch">Semester</label>
 
           <div>
-              <select class="form-control" id="branch" name="branch" required autofocus>
+              <select class="form-control" id="semester" name="semester" required autofocus>
                   <option>1-1</option>
                   <option>1-2</option>
                   <option>2-1</option>
@@ -75,4 +75,37 @@
 
   </div>
 
-@stop
+@endsection
+
+@section('scripts')
+
+<script>
+
+$( document ).ready(function() {
+
+  $("#form-category").submit(function(e)
+  {
+
+    console.log("Avinash");
+
+    e.preventDefault();
+
+    var form = $(this);
+
+    $.ajax({
+
+           type: "POST",
+           url: '{{route('category.store')}}',
+           data: form.serialize(), 
+           success: function(data)
+           {
+               location.reload();
+           }
+    });
+
+  });
+
+});
+</script>
+
+@endsection
