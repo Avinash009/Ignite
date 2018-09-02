@@ -32,7 +32,7 @@
     <body>
         <div class="container">
             <header>
-                @extends('layouts/header')
+                @extends('includes.header')
             </header>
 
             @yield('content')
