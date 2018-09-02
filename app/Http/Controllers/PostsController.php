@@ -2,6 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Tag;
+
+use App\Post;
+
+use App\Category;
+
+use Session;
+
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -23,7 +31,19 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+
+        $tags = Tag::all();
+
+        if($categories->count() == 0 || $tags->count() == 0)
+        {
+
+          Session::flash('info','You must have some categories and tags before attempting to create a post.');
+          return redirect()->back();
+        }
+
+        return view('admin.posts.create')->with('categories', $categories)
+                                         ->with('tags', $tags);
     }
 
     /**

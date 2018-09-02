@@ -23,7 +23,7 @@ class TagsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.department.tags.create');
     }
 
     /**
