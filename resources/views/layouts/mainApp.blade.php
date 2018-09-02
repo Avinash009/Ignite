@@ -30,14 +30,13 @@
 
     </head>
     <body>
-        <div class="container">
-            <header>
-                @extends('includes.header')
-            </header>
+        <div class="">
+
+            @include('includes.header')
+
 
             @yield('content')
-            
-            <footer>
+
                 <script src="{{ asset('plugins/TweenMax.min.js') }}"></script>
                 <script src="{{ asset('plugins/TimelineMax.min.js') }}"></script>
                 <script src="{{ asset('plugins/ScrollMagic.min.js') }}"></script>
@@ -47,8 +46,9 @@
                 <script src="{{ asset('plugins/parallax.min.js') }}"></script>
 
                 <script src="{{ asset('js/custom.js') }}"></script>
-            </footer>
+            
         </div>
+            @include('includes.footer')
 
 
     </body>
