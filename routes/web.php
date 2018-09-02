@@ -24,5 +24,19 @@ Route::get('/category/create', [
 
       'uses' => 'CategoriesController@create',
       'as'   =>'category.create'
+
+    ]);
+
+Route::get('/tag/create', [
+
+      'uses' => 'TagsController@create',
+      'as'   =>'tag.create'
+
+    ]);
+
+Route::get('/post/create', [
+
+      'uses' => 'PostsController@create',
+      'as'   =>'post.create'
       
     ]);
