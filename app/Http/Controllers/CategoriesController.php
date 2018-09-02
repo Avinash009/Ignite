@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Cse;
-
-class CseController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,14 +34,7 @@ class CseController extends Controller
      */
     public function store(Request $request)
     {
-        $cse = Cse::create([
-
-          'department'  => $request->department,
-          'semester'    => $request->semester,
-          'file'        => $request->file,
-          'vedio'       => $request->vedio,
-
-        ]);
+        //
     }
 
     /**

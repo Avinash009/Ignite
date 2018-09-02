@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Cse extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class Cse extends Migration
      */
     public function up()
     {
-        Schema::create('cse', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
+            
             $table->increments('id');
-            $table->string('department');
-            $table->string('semester');
-            $table->string('file');
-            $table->string('video');
+
+            $table->string('tag');
+
             $table->timestamps();
         });
     }
@@ -30,7 +30,6 @@ class Cse extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cse');
-        
+        Schema::dropIfExists('tags');
     }
 }
