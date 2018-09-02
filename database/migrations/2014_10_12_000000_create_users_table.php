@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->bigInteger('mobile')->unique();
             $table->string('branch');
+            $table->boolean('admin')->default(0);
             $table->string('email', 100)->unique();
             $table->string('password');
             $table->rememberToken();

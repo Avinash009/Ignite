@@ -20,9 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/post/create', [
+Route::get('/category/create', [
 
-      'uses' => 'PostsController@create',
-      'as'   =>'post.create'
+      'uses' => 'CategoriesController@create',
+      'as'   =>'category.create'
       
- ]);
+    ]);

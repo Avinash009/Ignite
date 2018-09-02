@@ -71,7 +71,68 @@
             </div>
         </nav>
 
-        @yield('content')
+        <div class="container">
+
+          <div class="row">
+            @if(Auth::check())
+            <div class="col-lg-4">
+
+              <ul class="list-group">
+
+                <li class="list-group-item">
+
+                  <a href="">Home</a>
+
+                </li>
+
+                <li class="list-group-item">
+
+                  <a href="">Categories</a>
+
+                </li>
+
+                <li class="list-group-item">
+
+                  <a href="">Tags</a>
+
+                </li>
+
+                <li class="list-group-item">
+
+                  <a href="">All posts</a>
+
+                </li>
+
+                <li class="list-group-item">
+
+                  <a href="{{ route('category.create') }}">Create new category</a>
+
+                </li>
+
+                <li class="list-group-item">
+
+                  <a href="">Create tag</a>
+
+                </li>
+
+                <li class="list-group-item">
+
+                  <a href="">Create new post</a>
+
+                </li>
+
+              </ul>
+            </div>
+
+            @endif
+
+            <div class="col-lg-8">
+              @yield('content')
+            </div>
+
+          </div>
+
+        </div>
     </div>
 
     <!-- Scripts -->
