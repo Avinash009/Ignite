@@ -19,7 +19,10 @@
                                 </li>
                             </ul>
                             <div class="top_bar_login ml-auto">
-                                <div class="login_button"><a href="#">Register or Login</a></div>
+                                <div class="login_button">
+                                    <a href="{{ url('page/register') }}">Register </a> | 
+                                    <a href="{{ url('page/login') }}">Login</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -41,11 +44,11 @@
                         </div>
                         <nav class="main_nav_contaner ml-auto">
                             <ul class="main_nav">
-                                <li class="active"><a href="#">Home</a></li>
+                                <li class="active"><a href="{{ url('/') }}">Home</a></li>
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="courses.html">Courses</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="#">Page</a></li>
+                                <!--<li><a href="blog.html">Blog</a></li>-->
+                                <!--<li><a href="#">Page</a></li>-->
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                             <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>

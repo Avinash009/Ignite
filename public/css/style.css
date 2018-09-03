@@ -327,7 +327,7 @@ section
 }
 .login_button a
 {
-	display: block;
+	display: inline;
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 40px;
@@ -357,6 +357,9 @@ section
 	height: 80px;
 }
 
+.contaner{
+    margin-top: 150px;
+}
 /*********************************
 3.3 Logo
 *********************************/
@@ -2026,4 +2029,8 @@ section
 a 
 {
     color: #FFFFFF;
+}
+
+.heading{
+    color: #14bdee;
 }
