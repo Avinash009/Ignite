@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
+
 use Session;
 
 use App\Category;
@@ -39,19 +41,55 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        print_r($request->all());
-        die();
-        $category = Category::create([
 
-          'department' => $request->department,
-
-          'year' => $request->year,
-
-          'semester' => $request->semester
-          
+        $validator = Validator::make($request->all(), [
+            'department' => 'required',
+            'year' => 'required',
+            'semester' => 'required'
         ]);
 
-        Session::flash('success', 'You successfully created a category.');
+        $categories = Category::all();
+
+        foreach ($categories as $category) 
+        {
+        
+            if($category->department == $request->department && $category->year == $request->year && 
+                $category->semester == $request->semester)
+            {
+                $validator->errors()->add('error', 'Already you have created this category with these'.$request->department." ".$category->year." ".$request->semester);
+                break;
+            }
+                
+        }
+
+        $errors = $validator->errors();
+        $errors =  json_decode($errors); 
+
+        print_r($errors->isEmpty());
+        die();
+        if ($validator->fails()) 
+        {
+
+            return response()->json([
+                'success' => false,
+                'message' => $errors
+            ], 422);
+        }
+        else
+        {
+            $category = Category::create([
+
+              'department' => $request->department,
+
+              'year' => $request->year,
+
+              'semester' => $request->semester
+              
+            ]);
+
+            Session::flash('success', 'You successfully created a category.');
+        }
+        
         
     }
 
