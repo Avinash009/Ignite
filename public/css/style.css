@@ -148,10 +148,10 @@ h6::selection
 {
 	
 }
-.form-control
+/*.form-control
 {
 	color: #db5246;
-}
+}*/
 section
 {
 	display: block;
@@ -2028,9 +2028,13 @@ section
 
 a 
 {
-    color: #FFFFFF;
+    color: #fff;
 }
 
 .heading{
     color: #14bdee;
+}
+#registerModal form label {
+    text-align: right;
+    margin: 0;
 }
