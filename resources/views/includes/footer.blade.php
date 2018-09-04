@@ -1,4 +1,5 @@
 <footer class="footer">
+
     <div class="footer_background" style="background-image:{{ asset('images/footer_background.png') }}"></div>
     <div class="container">
         <div class="row footer_row">
@@ -102,4 +103,5 @@
             </div>
         </div>
     </div>
+
 </footer>

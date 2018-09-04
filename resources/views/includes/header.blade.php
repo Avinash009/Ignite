@@ -20,7 +20,7 @@
                             </ul>
                             <div class="top_bar_login ml-auto">
                                 <div class="login_button">
-                                    <a href="{{ url('page/register') }}">Register </a> | 
+                                    <a href="#" data-toggle="modal" data-target="#registerModal">Register </a> | 
                                     <a href="{{ url('page/login') }}">Login</a>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                 <div class="col">
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
                         <div class="logo_container">
-                            <a href="#">
+                            <a href="{{ url('/') }}">
                                 <div class="logo_text"><img src="{{ asset('images/igniteLogo.jpg') }}" height="80" width="150"></div>
                             </a> 
                         </div>
