@@ -25,20 +25,40 @@
 
         <div class="form-group">
 
-          <label for="featured">Featured image</label>
+          <label for="category">Select Department</label>
 
-          <input type="file" name="featured" class="form-control">
+          <select name="department" id="department" class="form-control">
+
+              @foreach($categories as $category)
+                <option value="{{$category->department}}">{{$category->department}}</option>
+              @endforeach
+
+          </select>
 
         </div>
 
         <div class="form-group">
 
-          <label for="category">Select a category</label>
+          <label for="category">Select Year</label>
 
-          <select name="category_id" id="category" class="form-control">
+          <select name="year" id="year" class="form-control">
 
               @foreach($categories as $category)
-                <option value="{{$category->id}}">{{$category->name}}</option>
+                <option value="{{$category->semester}}">{{$category->year}}</option>
+              @endforeach
+
+          </select>
+
+        </div>
+
+        <div class="form-group">
+
+          <label for="category">Select Semester</label>
+
+          <select name="semester" id="semester" class="form-control">
+
+              @foreach($categories as $category)
+                <option value="{{$category->semester}}">{{$category->semester}}</option>
               @endforeach
 
           </select>

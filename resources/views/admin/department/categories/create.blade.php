@@ -86,8 +86,6 @@ $( document ).ready(function() {
   $("#form-category").submit(function(e)
   {
 
-    console.log("Avinash");
-
     e.preventDefault();
 
     var form = $(this);
@@ -99,7 +97,8 @@ $( document ).ready(function() {
            data: form.serialize(), 
            success: function(data)
            {
-               location.reload();
+                console.log(data);
+               //location.reload();
            }
     });
 

@@ -39,7 +39,8 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-
+        print_r($request->all());
+        die();
         $category = Category::create([
 
           'department' => $request->department,
