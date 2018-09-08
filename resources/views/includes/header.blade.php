@@ -21,7 +21,7 @@
                             <div class="top_bar_login ml-auto">
                                 <div class="login_button">
                                     <a href="#" data-toggle="modal" data-target="#registerModal">Register </a> | 
-                                    <a href="{{ url('page/login') }}">Login</a>
+                                    <a href="#" data-toggle="modal" data-target="#loginModal">Login</a>
                                 </div>
                             </div>
                         </div>

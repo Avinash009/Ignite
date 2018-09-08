@@ -1,3 +1,4 @@
+
 <!-- The Modal -->
 <div class="modal fade" id="registerModal">
     <div class="modal-dialog modal-dialog-centered">
