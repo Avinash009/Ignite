@@ -12,7 +12,7 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                <form class="form-horizontal loginForm" method="POST" action="">
                     {{ csrf_field() }}
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                         <div class="row">
@@ -69,3 +69,25 @@
         </div>
     </div>
 </div>
+@section('script')
+<script>
+    $(function () {
+        $('body').on('submit', '.loginForm', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'post',
+                url: '{{ route('login') }}',
+                data: $(this).serializeArray(),
+                success: function (data) {
+                    console.log(data);
+
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            })
+        }
+        );
+    });
+</script>
+@stop

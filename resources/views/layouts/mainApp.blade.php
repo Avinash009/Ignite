@@ -51,6 +51,7 @@
         @include('includes.registerModal')
         @include('includes.loginModal')
         @include('includes.footer')
+        
 
 
     </body>

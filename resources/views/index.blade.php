@@ -117,7 +117,7 @@
     <div class="home_slider_nav home_slider_next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
 </div>
 
-
+<?php echo "<pre>"; print_r(Session::all()); ?>
 <!-- Features -->
 
 <div class="features">

@@ -12,7 +12,7 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                <form class="form-horizontal registerForm" method="POST" action=""><!--{{ route('register') }}-->
                     {{ csrf_field() }}
                     <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
                         <div class="row">
@@ -126,14 +126,38 @@
                             </div>
                         </div>
                     </div>
-                </form>
+
             </div>
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Register</button>
+                <button type="submit" class="btn btn-primary" >Register</button>
             </div>
-
+            </form>
         </div>
     </div>
 </div>
+
+
+@section('script')
+<script>
+    $(function () {
+        $('body').on('submit', '.registerForm', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'post',
+                url: '{{ route('register') }}',
+                data: $(this).serializeArray(),
+                success: function (data) {
+                    console.log(data);
+
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            })
+        }
+        );
+    });
+</script>
+@stop
