@@ -48,10 +48,10 @@
 
                     <div class="form-group{{ $errors->has('mobile') ? ' has-error' : '' }}">
                         <div class="row">
-                            <label for="mobile" class="col-3 control-label align-self-center align-self-ceter">Mobile</label>
+                            <label for="mobile" class="col-3 control-label align-self-center align-self-ceter" >Mobile</label>
 
                             <div class="col-7">
-                                <input id="mobile" type="text" class="form-control" name="mobile" value="{{ old('mobile') }}" required autofocus>
+                                <input  type="text" class="form-control mobile" name="mobile"  value="{{ old('mobile') }}" required autofocus>
 
                                 @if ($errors->has('mobile'))
                                 <span class="help-block">
@@ -141,6 +141,18 @@
 
 @section('script')
 <script>
+    $('.mobile').keypress(function (e) {
+        //console.log(e.which)
+        console.log();
+        if ($(this).val().length >= 10)
+        {
+            return false;
+        }
+        if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+            return false;
+        }
+    });
+
     $(function () {
         $('body').on('submit', '.registerForm', function (e) {
             e.preventDefault();

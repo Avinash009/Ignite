@@ -39,6 +39,7 @@ class LoginController extends Controller
     
     protected function authenticated(Request $request, $user)
     {
+        die('ok');
         session_start();
         session(['user' => $user]);
         redirect()->back();
