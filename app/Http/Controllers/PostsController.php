@@ -61,7 +61,17 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = Post::create([
+
+          'title' => $request->department,
+
+          'department' => $request->department,
+
+          'year' => $request->year,
+
+          'semester' => $request->semester
+          
+        ]);
     }
 
     /**
