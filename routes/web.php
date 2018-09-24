@@ -18,6 +18,7 @@ Route::post('/', function () {
     return view('index');
 });
 
+Auth::routes();
 // Authentication Routes...
 $this->get('page/login', 'Auth\LoginController@showLoginForm');
 $this->post('login', 'Auth\LoginController@login')->name('login');

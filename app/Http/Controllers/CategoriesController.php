@@ -56,40 +56,40 @@ class CategoriesController extends Controller
             if($category->department == $request->department && $category->year == $request->year && 
                 $category->semester == $request->semester)
             {
-                $validator->errors()->add('error', 'Already you have created this category with these'.$request->department." ".$category->year." ".$request->semester);
+                $validator->errors()->add('error', 'Already you have created this category with these values   <b>'.$request->department."</b>  <b>".$category->year."</b>  <b>".$request->semester."</b> ");
                 break;
             }
                 
         }
 
         $errors = $validator->errors();
-        $errors =  json_decode($errors); 
 
-        print_r($errors->isEmpty());
-        die();
-        if ($validator->fails()) 
+        if(!$errors->isEmpty() || $validator->fails())
         {
-
             return response()->json([
-                'success' => false,
-                'message' => $errors
-            ], 422);
-        }
-        else
-        {
-            $category = Category::create([
 
-              'department' => $request->department,
+                'fail' => false,
+                'message'=>$validator->errors()->all()
 
-              'year' => $request->year,
-
-              'semester' => $request->semester
-              
             ]);
-
-            Session::flash('success', 'You successfully created a category.');
         }
         
+        $category = Category::create([
+
+          'department' => $request->department,
+
+          'year' => $request->year,
+
+          'semester' => $request->semester
+          
+        ]);
+
+        return response()->json([
+
+                'success' => true,
+                'message'=>"You have successfully created a category"
+
+            ]);
         
     }
 

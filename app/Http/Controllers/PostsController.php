@@ -31,9 +31,16 @@ class PostsController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+
+        $departments =  Category::distinct()->get(['department']);
+
+        $years =  Category::distinct()->get(['year']);
+
+        $semesters =  Category::distinct()->get(['semester']);
 
         $tags = Tag::all();
+
+        $categories = Category::all();
 
         if($categories->count() == 0 || $tags->count() == 0)
         {
@@ -42,7 +49,7 @@ class PostsController extends Controller
           return redirect()->back();
         }
 
-        return view('admin.department.posts.create')->with('categories', $categories)
+        return view('admin.department.posts.create')->with('departments', $departments)->with('years', $years)->with('semesters', $semesters)
                                          ->with('tags', $tags);
     }
 

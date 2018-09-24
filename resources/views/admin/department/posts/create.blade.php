@@ -29,8 +29,8 @@
 
           <select name="department" id="department" class="form-control">
 
-              @foreach($categories as $category)
-                <option value="{{$category->department}}">{{$category->department}}</option>
+              @foreach($departments as $department)
+                <option value="{{$department->department}}">{{$department->department}}</option>
               @endforeach
 
           </select>
@@ -43,8 +43,8 @@
 
           <select name="year" id="year" class="form-control">
 
-              @foreach($categories as $category)
-                <option value="{{$category->semester}}">{{$category->year}}</option>
+              @foreach($years as $year)
+                <option value="{{$year->year}}">{{$year->year}}</option>
               @endforeach
 
           </select>
@@ -57,8 +57,8 @@
 
           <select name="semester" id="semester" class="form-control">
 
-              @foreach($categories as $category)
-                <option value="{{$category->semester}}">{{$category->semester}}</option>
+              @foreach($semesters as $semester)
+                <option value="{{$semester->semester}}">{{$semester->semester}}</option>
               @endforeach
 
           </select>

@@ -59,7 +59,12 @@
               </select>
           </div>
         </div>
-
+        <div class="error">
+           
+        </div>
+        <div class="success">
+           
+        </div>
         <div class="form-group">
 
           <div class="text-center">
@@ -95,9 +100,17 @@ $( document ).ready(function() {
            type: "POST",
            url: '{{route('category.store')}}',
            data: form.serialize(), 
-           success: function(data)
+           success: function(message)
            {
-                console.log(data);
+
+                if(message.success)
+                {
+                  $('.success').html(message.message[0]);
+                }
+                else
+                {
+                  $('.error').html(message.message);
+                }
                //location.reload();
            }
     });
